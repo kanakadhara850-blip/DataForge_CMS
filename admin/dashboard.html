@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Admin Dashboard - Data Forge CMS">
+    <title>Dashboard - Data Forge CMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode admin-panel">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">DF</div>
+            <h2>Data Forge</h2>
+            <button class="sidebar-toggle" id="sidebar-toggle">☰</button>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item active" data-page="dashboard">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Dashboard</span>
+            </a>
+            <a href="manage-events.html" class="nav-item" data-page="manage-events">
+                <span class="nav-icon">📅</span>
+                <span class="nav-label">Events</span>
+            </a>
+            <a href="registrations.html" class="nav-item" data-page="registrations">
+                <span class="nav-icon">👥</span>
+                <span class="nav-label">Registrations</span>
+            </a>
+            <a href="announcements.html" class="nav-item" data-page="announcements">
+                <span class="nav-icon">📢</span>
+                <span class="nav-label">Announcements</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="user-info">
+                <div class="user-avatar">A</div>
+                <div class="user-details">
+                    <p class="user-name" id="user-name">Admin</p>
+                </div>
+            </div>
+            <button class="btn-icon logout-btn" id="logout-btn" title="Logout">🚪</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <!-- Top Navigation -->
+        <nav class="admin-topnav">
+            <div class="topnav-left">
+                <button class="menu-toggle" id="menu-toggle">☰</button>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="topnav-right">
+                <div class="search-box admin-search">
+                    <input type="text" placeholder="Search..." id="global-search">
+                    <span class="search-icon">🔍</span>
+                </div>
+                <button class="btn-icon" id="theme-toggle" title="Toggle theme">🌙</button>
+            </div>
+        </nav>
+
+        <!-- Dashboard Content -->
+        <div class="admin-content">
+            <section class="dashboard-welcome">
+                <div class="welcome-header">
+                    <div>
+                        <h2>Welcome back, <span id="admin-name">Admin</span>!</h2>
+                        <p>Here's what's happening with your events today.</p>
+                    </div>
+                    <a href="add-event.html" class="btn btn-primary">+ New Event</a>
+                </div>
+            </section>
+
+            <!-- Stats Cards -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Total Events</h3>
+                        <span class="stat-icon">📅</span>
+                    </div>
+                    <div class="stat-value" id="stat-total-events">0</div>
+                    <p class="stat-change">Events managed</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Upcoming Events</h3>
+                        <span class="stat-icon">⏰</span>
+                    </div>
+                    <div class="stat-value" id="stat-upcoming-events">0</div>
+                    <p class="stat-change">Scheduled</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Total Registrations</h3>
+                        <span class="stat-icon">👥</span>
+                    </div>
+                    <div class="stat-value" id="stat-total-registrations">0</div>
+                    <p class="stat-change">Total participants</p>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <h3>Pending Approvals</h3>
+                        <span class="stat-icon">⏳</span>
+                    </div>
+                    <div class="stat-value" id="stat-pending-approvals">0</div>
+                    <p class="stat-change">Awaiting action</p>
+                </div>
+            </section>
+
+            <!-- Quick Actions -->
+            <section class="quick-actions">
+                <h3>Quick Actions</h3>
+                <div class="actions-grid">
+                    <a href="add-event.html" class="action-card">
+                        <span class="action-icon">➕</span>
+                        <span class="action-label">Create Event</span>
+                    </a>
+                    <a href="announcements.html" class="action-card">
+                        <span class="action-icon">📢</span>
+                        <span class="action-label">Create Announcement</span>
+                    </a>
+                    <a href="registrations.html" class="action-card">
+                        <span class="action-icon">👥</span>
+                        <span class="action-label">View Registrations</span>
+                    </a>
+                    <a href="manage-events.html" class="action-card">
+                        <span class="action-icon">📋</span>
+                        <span class="action-label">Manage Events</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="recent-activity">
+                <h3>Recent Activity</h3>
+                <div class="activity-list" id="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">📝</div>
+                        <div class="activity-content">
+                            <p>Loading activity...</p>
+                            <span class="activity-time">just now</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="toast-container"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js"></script>
+
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/notifications.js"></script>
+    <script src="../js/components.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/firestore-crud.js"></script>
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

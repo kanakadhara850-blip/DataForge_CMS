@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Events - Data Forge CMS</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode admin-panel">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">DF</div>
+            <h2>Data Forge</h2>
+        </div>
+
+        <nav class="sidebar-nav">
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">📊</span>
+                <span class="nav-label">Dashboard</span>
+            </a>
+            <a href="manage-events.html" class="nav-item active">
+                <span class="nav-icon">📅</span>
+                <span class="nav-label">Events</span>
+            </a>
+            <a href="registrations.html" class="nav-item">
+                <span class="nav-icon">👥</span>
+                <span class="nav-label">Registrations</span>
+            </a>
+            <a href="announcements.html" class="nav-item">
+                <span class="nav-icon">📢</span>
+                <span class="nav-label">Announcements</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <button class="btn-icon logout-btn" id="logout-btn">🚪</button>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+        <nav class="admin-topnav">
+            <div class="topnav-left">
+                <h1>Manage Events</h1>
+            </div>
+            <div class="topnav-right">
+                <a href="add-event.html" class="btn btn-primary">+ New Event</a>
+            </div>
+        </nav>
+
+        <div class="admin-content">
+            <div class="events-table-container">
+                <div class="table-controls">
+                    <input type="text" id="search-events" placeholder="Search events..." class="search-input">
+                    <select id="status-filter" class="sort-select">
+                        <option value="all">All Status</option>
+                        <option value="published">Published</option>
+                        <option value="draft">Draft</option>
+                        <option value="archived">Archived</option>
+                    </select>
+                </div>
+
+                <div class="responsive-table">
+                    <table class="events-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Date</th>
+                                <th>Category</th>
+                                <th>Registrations</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="events-table-body">
+                            <tr>
+                                <td colspan="6" style="text-align: center; padding: 2rem;">Loading events...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="toast-container"></div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js"></script>
+
+    <script src="../js/firebase-config.js"></script>
+    <script src="../js/notifications.js"></script>
+    <script src="../js/utils.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/firestore-crud.js"></script>
+    <script src="../js/event-manager.js"></script>
+</body>
+</html>
